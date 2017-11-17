@@ -6,6 +6,8 @@ var PropTypes = require('prop-types');
 module.exports = {
 
     propTypes: {
+        info: PropTypes.string,
+        footer: PropTypes.string,
         layout: PropTypes.string,
         validatePristine: PropTypes.bool,
         validateOnSubmit: PropTypes.bool,
@@ -141,7 +143,7 @@ module.exports = {
             return null;
         }
         return (
-            <p style={{margin: 0}} dangerouslySetInnerHTML={{__html: this.props.info}} />
+            <p style={{margin: 0}}><small  dangerouslySetInnerHTML={{__html: this.props.info}} /></p>
         );
     },
 
@@ -150,7 +152,7 @@ module.exports = {
             return null;
         }
         return (
-            <p style={{margin: 0}} dangerouslySetInnerHTML={{__html: this.props.footer}} />
+            <p style={{margin: 0}}><small  dangerouslySetInnerHTML={{__html: this.props.footer}} /></p>
         );
     },
 

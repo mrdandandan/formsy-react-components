@@ -6,6 +6,8 @@ var PropTypes = require('prop-types');
 module.exports = {
 
     propTypes: {
+        info: PropTypes.string,
+        footer: PropTypes.string,
         layout: PropTypes.string,
         validatePristine: PropTypes.bool,
         validateOnSubmit: PropTypes.bool,
@@ -112,14 +114,22 @@ module.exports = {
         if (!this.props.info) {
             return null;
         }
-        return React.createElement('p', { style: { margin: 0 }, dangerouslySetInnerHTML: { __html: this.props.info } });
+        return React.createElement(
+            'p',
+            { style: { margin: 0 } },
+            React.createElement('small', { dangerouslySetInnerHTML: { __html: this.props.info } })
+        );
     },
 
     renderFooter: function renderFooter() {
         if (!this.props.footer) {
             return null;
         }
-        return React.createElement('p', { style: { margin: 0 }, dangerouslySetInnerHTML: { __html: this.props.footer } });
+        return React.createElement(
+            'p',
+            { style: { margin: 0 } },
+            React.createElement('small', { dangerouslySetInnerHTML: { __html: this.props.footer } })
+        );
     },
 
     renderHelp: function renderHelp() {

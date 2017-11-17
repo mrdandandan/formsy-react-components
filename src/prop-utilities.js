@@ -29,6 +29,8 @@ const cleanProps = (props) => {
         buttonBefore,
         elementWrapperClassName,
         help,
+        info,
+        footer,
         label,
         options,
         labelClassName,
