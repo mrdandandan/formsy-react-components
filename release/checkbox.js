@@ -71,7 +71,9 @@ var Checkbox = createReactClass({
                 label: this.props.rowLabel,
                 htmlFor: this.getId()
             }),
+            this.renderInfo(),
             element,
+            this.renderFooter(),
             this.renderHelp(),
             this.renderErrorMessage()
         );
