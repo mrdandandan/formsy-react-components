@@ -50,7 +50,9 @@ var Select = createReactClass({
             _extends({}, this.getRowProperties(), {
                 htmlFor: this.getId()
             }),
+            this.renderInfo(),
             this.renderElement(),
+            this.renderFooter(),
             this.renderHelp(),
             this.renderErrorMessage()
         );

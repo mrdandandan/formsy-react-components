@@ -42,7 +42,9 @@ var Select = createReactClass({
                 {...this.getRowProperties()}
                 htmlFor={this.getId()}
             >
+                {this.renderInfo()}
                 {this.renderElement()}
+                {this.renderFooter()}
                 {this.renderHelp()}
                 {this.renderErrorMessage()}
             </Row>
