@@ -13,7 +13,7 @@ var Checkbox = createReactClass({
 
     mixins: [Formsy.Mixin, ComponentMixin],
 
-    getDefaultProps: function() {
+    getDefaultProps: function () {
         return {
             label: '',
             rowLabel: '',
@@ -21,16 +21,16 @@ var Checkbox = createReactClass({
         };
     },
 
-    changeValue: function(event) {
+    changeValue: function (event) {
         var target = event.currentTarget;
         this.setValue(target.checked);
         this.props.onChange(this.props.name, target.checked);
     },
 
-    renderElement: function() {
+    renderElement: function () {
         return (
-            <div className="checkbox">
-                <label>
+            <div className="form-group">
+                <div className="checkbox-group">
                     <input
                         ref={(c) => this.element = c}
                         {...propUtilities.cleanProps(this.props)}
@@ -39,13 +39,16 @@ var Checkbox = createReactClass({
                         checked={this.getValue() === true}
                         onChange={this.changeValue}
                         disabled={this.isFormDisabled() || this.props.disabled}
-                    /> {this.props.label}
-                </label>
+                    />
+                    <label htmlFor={this.getId()}>
+                        {this.props.label}
+                    </label>
+                </div>
             </div>
         );
     },
 
-    render: function() {
+    render: function () {
 
         var element = this.renderElement();
 
@@ -54,17 +57,22 @@ var Checkbox = createReactClass({
         }
 
         return (
-            <Row
-                {...this.getRowProperties()}
-                label={this.props.rowLabel}
-                htmlFor={this.getId()}
-            >
-                {this.renderInfo()}
+            <div>
+                {this.renderInfo('0 0 10px')}
                 {element}
-                {this.renderFooter()}
-                {this.renderHelp()}
+                {this.renderHelp('10px 0 0')}
                 {this.renderErrorMessage()}
-            </Row>
+                {/*<Row*/}
+                {/*{...this.getRowProperties()}*/}
+                {/*label={this.props.rowLabel}*/}
+                {/*htmlFor={this.getId()}*/}
+                {/*>*/}
+                {/*{element}*/}
+                {/*{this.renderHelp()}*/}
+                {/*{this.renderErrorMessage()}*/}
+                {/*</Row>*/}
+                {this.renderFooter()}
+            </div>
         );
     }
 });

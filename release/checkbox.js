@@ -36,10 +36,10 @@ var Checkbox = createReactClass({
 
         return React.createElement(
             'div',
-            { className: 'checkbox' },
+            { className: 'form-group' },
             React.createElement(
-                'label',
-                null,
+                'div',
+                { className: 'checkbox-group' },
                 React.createElement('input', _extends({
                     ref: function ref(c) {
                         return _this.element = c;
@@ -51,8 +51,11 @@ var Checkbox = createReactClass({
                     onChange: this.changeValue,
                     disabled: this.isFormDisabled() || this.props.disabled
                 })),
-                ' ',
-                this.props.label
+                React.createElement(
+                    'label',
+                    { htmlFor: this.getId() },
+                    this.props.label
+                )
             )
         );
     },
@@ -66,16 +69,13 @@ var Checkbox = createReactClass({
         }
 
         return React.createElement(
-            Row,
-            _extends({}, this.getRowProperties(), {
-                label: this.props.rowLabel,
-                htmlFor: this.getId()
-            }),
-            this.renderInfo(),
+            'div',
+            null,
+            this.renderInfo('0 0 10px'),
             element,
-            this.renderFooter(),
-            this.renderHelp(),
-            this.renderErrorMessage()
+            this.renderHelp('10px 0 0'),
+            this.renderErrorMessage(),
+            this.renderFooter()
         );
     }
 });

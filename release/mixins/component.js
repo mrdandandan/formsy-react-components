@@ -111,23 +111,27 @@ module.exports = {
     },
 
     renderInfo: function renderInfo() {
+        var margin = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
         if (!this.props.info) {
             return null;
         }
         return React.createElement(
             'p',
-            { style: { margin: 0 } },
+            { style: { margin: margin } },
             React.createElement('small', { dangerouslySetInnerHTML: { __html: this.props.info } })
         );
     },
 
     renderFooter: function renderFooter() {
+        var margin = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
         if (!this.props.footer) {
             return null;
         }
         return React.createElement(
             'p',
-            { style: { margin: 0 } },
+            { style: { margin: margin } },
             React.createElement('small', { dangerouslySetInnerHTML: { __html: this.props.footer } })
         );
     },

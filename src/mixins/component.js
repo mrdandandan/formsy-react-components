@@ -138,21 +138,21 @@ module.exports = {
         ].join('-');
     },
 
-    renderInfo: function() {
+    renderInfo: function(margin = 0) {
         if(!this.props.info) {
             return null;
         }
         return (
-            <p style={{margin: 0}}><small  dangerouslySetInnerHTML={{__html: this.props.info}} /></p>
+            <p style={{margin: margin}}><small  dangerouslySetInnerHTML={{__html: this.props.info}} /></p>
         );
     },
 
-    renderFooter: function() {
+    renderFooter: function(margin = 0) {
         if(!this.props.footer) {
             return null;
         }
         return (
-            <p style={{margin: 0}}><small  dangerouslySetInnerHTML={{__html: this.props.footer}} /></p>
+            <p style={{margin: margin}}><small  dangerouslySetInnerHTML={{__html: this.props.footer}} /></p>
         );
     },
 
