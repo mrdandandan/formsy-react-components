@@ -44,7 +44,7 @@
     }
   },
   "peerDependencies": {
-    "formsy-react": "^1.0.0",
+    "formsy-react": "git+https://github.com/RMSAuto/formsy-react#master",
     "react": "^15.4.0"
   },
   "dependencies": {
