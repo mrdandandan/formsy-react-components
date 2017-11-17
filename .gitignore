@@ -2,7 +2,6 @@ coverage/
 examples/build
 node_modules/
 notes/
-release/
 *.log
 
 .idea/
