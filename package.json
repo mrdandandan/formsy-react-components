@@ -44,7 +44,7 @@
     }
   },
   "peerDependencies": {
-    "formsy-react": "^1.0.0",
+    "formsy-react": "^1.1.0",
     "react": "^15.4.0"
   },
   "dependencies": {
@@ -71,7 +71,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.2.0",
     "eslint-plugin-react": "^7.2.1",
-    "formsy-react": "^1.0.0",
+    "formsy-react": "^1.1.0",
     "gh-pages": "^1.0.0",
     "jest": "^21.1.0",
     "prettier": "^1.6.1",

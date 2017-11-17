@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Wrapper as FormsyHOC} from 'formsy-react';
+import {withFormsy as FormsyHOC} from 'formsy-react';
 import styleClassNames from '../components/prop-types';
 
 function getDisplayName(component) {
