@@ -9,52 +9,28 @@ module.exports = {
         layout: PropTypes.string,
         validatePristine: PropTypes.bool,
         validateOnSubmit: PropTypes.bool,
-        rowClassName: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.array,
-            PropTypes.object
-        ]),
-        labelClassName: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.array,
-            PropTypes.object
-        ]),
-        elementWrapperClassName: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.array,
-            PropTypes.object
-        ])
+        rowClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+        labelClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+        elementWrapperClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
     },
 
     contextTypes: {
         layout: PropTypes.string,
         validatePristine: PropTypes.bool,
         validateOnSubmit: PropTypes.bool,
-        rowClassName: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.array,
-            PropTypes.object
-        ]),
-        labelClassName: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.array,
-            PropTypes.object
-        ]),
-        elementWrapperClassName: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.array,
-            PropTypes.object
-        ])
+        rowClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+        labelClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+        elementWrapperClassName: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
     },
 
-    getDefaultProps: function() {
+    getDefaultProps: function getDefaultProps() {
         return {
             disabled: false,
             validatePristine: false,
             validateOnSubmit: false,
-            onChange: function() {},
-            onFocus: function() {},
-            onBlur: function() {}
+            onChange: function onChange() {},
+            onFocus: function onFocus() {},
+            onBlur: function onBlur() {}
         };
     },
 
@@ -68,34 +44,34 @@ module.exports = {
      *
      * Also see the parent-context mixin.
      */
-    getLayout: function() {
+    getLayout: function getLayout() {
         var defaultProperty = this.context.layout || 'horizontal';
         return this.props.layout ? this.props.layout : defaultProperty;
     },
 
-    getValidatePristine: function() {
+    getValidatePristine: function getValidatePristine() {
         var defaultProperty = this.context.validatePristine || false;
         return this.props.validatePristine ? this.props.validatePristine : defaultProperty;
     },
 
-    getValidateOnSubmit: function() {
+    getValidateOnSubmit: function getValidateOnSubmit() {
         var defaultProperty = this.context.validateOnSubmit || false;
         return this.props.validateOnSubmit ? this.props.validateOnSubmit : defaultProperty;
     },
 
-    getRowClassName: function() {
+    getRowClassName: function getRowClassName() {
         return [this.context.rowClassName, this.props.rowClassName];
     },
 
-    getLabelClassName: function() {
+    getLabelClassName: function getLabelClassName() {
         return [this.context.labelClassName, this.props.labelClassName];
     },
 
-    getElementWrapperClassName: function() {
+    getElementWrapperClassName: function getElementWrapperClassName() {
         return [this.context.elementWrapperClassName, this.props.elementWrapperClassName];
     },
 
-    getRowProperties: function() {
+    getRowProperties: function getRowProperties() {
         return {
             label: this.props.label,
             rowClassName: this.getRowClassName(),
@@ -107,10 +83,10 @@ module.exports = {
         };
     },
 
-    hashString: function(string) {
+    hashString: function hashString(string) {
         var hash = 0;
         for (var i = 0; i < string.length; i++) {
-            hash = (((hash << 5) - hash) + string.charCodeAt(i)) & 0xFFFFFFFF;
+            hash = (hash << 5) - hash + string.charCodeAt(i) & 0xFFFFFFFF;
         }
         return hash;
     },
@@ -124,58 +100,54 @@ module.exports = {
      * If we don't explicitly pass an `id` prop, we generate one based on the
      * `name` and `label` properties.
      */
-    getId: function() {
+    getId: function getId() {
         if (this.props.id) {
             return this.props.id;
         }
-        var label = (typeof this.props.label === 'undefined' ? '' : this.props.label);
-        return [
-            'frc',
-            this.props.name.split('[').join('_').replace(']', ''),
-            this.hashString(JSON.stringify(label))
-        ].join('-');
+        var label = typeof this.props.label === 'undefined' ? '' : this.props.label;
+        return ['frc', this.props.name.split('[').join('_').replace(']', ''), this.hashString(JSON.stringify(label))].join('-');
     },
 
-    renderInfo: function() {
-        if(!this.props.info) {
+    renderInfo: function renderInfo() {
+        if (!this.props.info) {
             return null;
         }
-        return (
-            <p style={{margin: 0}} dangerouslySetInnerHTML={{__html: this.props.info}} />
-        );
+        return React.createElement('p', { style: { margin: 0 }, dangerouslySetInnerHTML: { __html: this.props.info } });
     },
 
-    renderFooter: function() {
-        if(!this.props.footer) {
+    renderFooter: function renderFooter() {
+        if (!this.props.footer) {
             return null;
         }
-        return (
-            <p style={{margin: 0}} dangerouslySetInnerHTML={{__html: this.props.footer}} />
-        );
+        return React.createElement('p', { style: { margin: 0 }, dangerouslySetInnerHTML: { __html: this.props.footer } });
     },
 
-    renderHelp: function() {
+    renderHelp: function renderHelp() {
         if (!this.props.help) {
             return null;
         }
-        return (
-            <span className="help-block">{this.props.help}</span>
+        return React.createElement(
+            'span',
+            { className: 'help-block' },
+            this.props.help
         );
     },
 
-    renderErrorMessage: function() {
+    renderErrorMessage: function renderErrorMessage() {
         if (!this.showErrors()) {
             return null;
         }
         var errorMessages = this.getErrorMessages() || [];
-        return errorMessages.map((message, key) => {
-            return (
-                <span key={key} className="help-block validation-message">{message}</span>
+        return errorMessages.map(function (message, key) {
+            return React.createElement(
+                'span',
+                { key: key, className: 'help-block validation-message' },
+                message
             );
         });
     },
 
-    showErrors: function() {
+    showErrors: function showErrors() {
         if (this.isPristine() && !this.getValidatePristine()) {
             return false;
         }

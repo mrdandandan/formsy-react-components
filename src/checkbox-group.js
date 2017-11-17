@@ -21,7 +21,9 @@ var CheckboxGroup = createReactClass({
     getDefaultProps: function() {
         return {
             label: '',
-            help: null
+            help: null,
+            info: null,
+            footer: null
         };
     },
 

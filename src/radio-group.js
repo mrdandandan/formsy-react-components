@@ -23,7 +23,9 @@ var RadioGroup = createReactClass({
         return {
             type: 'stacked',
             label: '',
-            help: null
+            help: null,
+            info: null,
+            footer: null
         };
     },
 
