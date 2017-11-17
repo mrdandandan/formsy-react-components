@@ -182,8 +182,10 @@ const FormsyReactComponent = ComposedComponent => {
     name: PropTypes.string.isRequired,
     disabled: PropTypes.bool,
 
+    footer: PropTypes.string,
     // Composed components expect this to be a string.
     help: PropTypes.string,
+    info: PropTypes.string,
 
     id: PropTypes.string,
     label: PropTypes.string,
@@ -222,8 +224,10 @@ const FormsyReactComponent = ComposedComponent => {
   // * validateOnSubmit: (See getValidateOnSubmit, defaults to 'false'),
   ComponentHOC.defaultProps = {
     disabled: false,
+    footer: '',
     help: '',
     id: '',
+    info: '',
     label: '',
     layout: '',
     validateOnSubmit: null,

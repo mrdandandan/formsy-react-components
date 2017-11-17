@@ -4,6 +4,7 @@ import debounce from 'lodash.debounce';
 import ComponentCommon from './component-common';
 import ErrorMessages from './error-messages';
 import Help from './help';
+import Meta from './meta';
 import Row from './row';
 import TextareaControl from './controls/textarea';
 
@@ -75,7 +76,9 @@ class Textarea extends Component {
 
     return (
       <Row {...this.props} htmlFor={this.props.id}>
+        {this.props.info ? <Meta text={this.props.info} /> : null}
         {element}
+        {this.props.footer ? <Meta text={this.props.footer} /> : null}
         {this.props.help ? <Help help={this.props.help} /> : null}
         {this.props.showErrors ? (
           <ErrorMessages messages={this.props.errorMessages} />
