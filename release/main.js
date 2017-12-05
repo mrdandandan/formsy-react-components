@@ -7,6 +7,7 @@ module.exports = {
     Input: require('./input'),
     File: require('./input-file'),
     RadioGroup: require('./radio-group'),
+    RMSRadioGroup: require('./rms-radio-group'),
     Row: require('./row'),
     Select: require('./select'),
     Textarea: require('./textarea'),
