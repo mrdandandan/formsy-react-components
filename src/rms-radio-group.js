@@ -87,7 +87,9 @@ var RadioGroup = createReactClass({
                 {...this.getRowProperties()}
                 fakeLabel={true}
             >
+                {this.renderInfo()}
                 {this.renderElement()}
+                {this.renderFooter()}
                 {this.renderHelp()}
                 {this.renderErrorMessage()}
             </Row>
