@@ -42,16 +42,20 @@ var RadioGroup = createReactClass({
             let className = 'radio-group' + (disabled ? ' disabled' : '');
             if (this.props.type === 'inline') {
                 return (
-                    <label className="radio-inline" key={key}>
+                    <div className="radio-group col-sm-12 col-md-2" key={key}>
                         <input
                             ref={(c) => this['element-' + key] = c}
                             checked={checked}
+                            id={radio.id}
                             type="radio"
                             value={radio.value}
                             onChange={this.changeRadio}
                             disabled={disabled}
-                        /> {radio.label}
-                    </label>
+                        />
+                        <label htmlFor={radio.id}>
+                            {radio.label}
+                        </label>
+                    </div>
                 );
             }
             return (
@@ -71,6 +75,11 @@ var RadioGroup = createReactClass({
                 </div>
             );
         });
+        if(this.props.type === 'inline') {
+            return <div className="row">
+                {controls}
+            </div>
+        }
         return controls;
     },
 

@@ -48,20 +48,24 @@ var RadioGroup = createReactClass({
             var className = 'radio-group' + (disabled ? ' disabled' : '');
             if (_this.props.type === 'inline') {
                 return React.createElement(
-                    'label',
-                    { className: 'radio-inline', key: key },
+                    'div',
+                    { className: 'radio-group col-sm-12 col-md-2', key: key },
                     React.createElement('input', {
                         ref: function ref(c) {
                             return _this['element-' + key] = c;
                         },
                         checked: checked,
+                        id: radio.id,
                         type: 'radio',
                         value: radio.value,
                         onChange: _this.changeRadio,
                         disabled: disabled
                     }),
-                    ' ',
-                    radio.label
+                    React.createElement(
+                        'label',
+                        { htmlFor: radio.id },
+                        radio.label
+                    )
                 );
             }
             return React.createElement(
@@ -85,6 +89,13 @@ var RadioGroup = createReactClass({
                 )
             );
         });
+        if (this.props.type === 'inline') {
+            return React.createElement(
+                'div',
+                { className: 'row' },
+                controls
+            );
+        }
         return controls;
     },
 
