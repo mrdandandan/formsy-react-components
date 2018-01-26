@@ -51,9 +51,11 @@
     "babel-preset-stage-0": "^6.5.0",
     "create-react-class": "^15.6.2",
     "eslint": "^3.0.1",
+    "eslint-plugin-prettier": "^2.5.0",
     "eslint-plugin-react": "^5.2.2",
     "formsy-react": "git+https://github.com/RMSAuto/formsy-react#master",
     "jest-cli": "^12.1.0",
+    "prettier": "^1.10.2",
     "react": "^15.5.0",
     "react-dom": "^15.5.0"
   }
