@@ -42,7 +42,7 @@ var RadioGroup = createReactClass({
             let className = 'radio-group' + (disabled ? ' disabled' : '');
             if (this.props.type === 'inline') {
                 return (
-                    <div className="radio-group col-sm-12 col-md-2" key={key}>
+                    <div className={`${className} col-sm-12 col-md-2}`} key={key}>
                         <input
                             ref={(c) => this['element-' + key] = c}
                             checked={checked}
