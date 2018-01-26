@@ -1,19 +1,12 @@
 {
   "name": "formsy-react-components",
-  "version": "1.0.0-alpha.7",
+  "version": "0.11.0",
   "description": "A set of React JS components for use in a formsy-react form. Markup adheres to Bootstrap structure.",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch",
-    "test:full": "jest --coverage --verbose",
-    "lint": "eslint src examples",
-    "prepublishOnly": "./scripts/prepublish.sh",
-    "transpile": "rm -rf release && babel src -d release --ignore __tests__",
-    "dev": "babel src --watch -d release --source-maps",
-    "examples": "webpack-dev-server --config examples/webpack.config --port 3000 --content-base examples",
-    "examples:build": "webpack -p --config examples/webpack.config",
-    "gh-pages": "NODE_ENV=production yarn examples:build && gh-pages -d examples",
-    "generate-docs": "./scripts/generate-docs.sh"
+    "lint": "eslint src",
+    "transpile": "babel src -d release --ignore __tests__",
+    "prepublish": "NODE_ENV=production npm run transpile"
   },
   "main": "./release/main.js",
   "repository": {
@@ -32,55 +25,36 @@
     "url": "https://github.com/twisty/formsy-react-components/issues"
   },
   "jest": {
-    "roots": [
-      "./src",
-      "./examples"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>/src/components/__tests__/component.js"
-    ],
-    "moduleNameMapper": {
-      "formsy-react-components": "<rootDir>/src/main.js"
-    }
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/react-dom",
+      "<rootDir>/node_modules/react-addons-test-utils"
+    ]
   },
   "peerDependencies": {
-    "formsy-react": "^1.0.0",
-    "react": "^15.4.0"
+    "create-react-class": "^15.5.0",
+    "formsy-react": "git+https://github.com/RMSAuto/formsy-react#master",
+    "react": "^15.5.0 || ^16.0.0"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "lodash.debounce": "^4.0.6",
-    "prop-types": "^15.5.10"
+    "classnames": "^2.1.3",
+    "prop-types": "^15.5.7"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.0",
-    "babel-jest": "^21.0.2",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-transform-react-display-name": "^6.25.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "enzyme": "^2.9.1",
-    "eslint": "^4.6.1",
-    "eslint-config-airbnb": "^16.0.0",
-    "eslint-config-prettier": "^2.4.0",
-    "eslint-import-resolver-webpack": "^0.8.3",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-prettier": "^2.2.0",
-    "eslint-plugin-react": "^7.2.1",
-    "formsy-react": "^1.0.0",
-    "gh-pages": "^1.0.0",
-    "jest": "^21.1.0",
-    "prettier": "^1.6.1",
-    "react": "^15.6.1",
-    "react-docgen": "^2.18.0",
-    "react-docs-markdown": "^0.4.0",
-    "react-dom": "^15.6.1",
-    "react-test-renderer": "^15.6.1",
-    "webpack": "^3.5.6",
-    "webpack-dev-server": "^2.8.1"
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^6.0.2",
+    "babel-jest": "^12.1.0",
+    "babel-plugin-transform-react-display-name": "^6.0.14",
+    "babel-polyfill": "^6.7.4",
+    "babel-preset-es2015": "^6.0.12",
+    "babel-preset-react": "^6.0.12",
+    "babel-preset-stage-0": "^6.5.0",
+    "create-react-class": "^15.6.2",
+    "eslint": "^3.0.1",
+    "eslint-plugin-react": "^5.2.2",
+    "formsy-react": "git+https://github.com/RMSAuto/formsy-react#master",
+    "jest-cli": "^12.1.0",
+    "react": "^15.5.0",
+    "react-dom": "^15.5.0"
   }
 }
