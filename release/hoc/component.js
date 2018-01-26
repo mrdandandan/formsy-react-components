@@ -274,7 +274,7 @@ var FormsyReactComponent = function FormsyReactComponent(ComposedComponent) {
 
   ComponentHOC.displayName = 'withFRC(' + getDisplayName(ComposedComponent) + ')';
 
-  return (0, _formsyReact.Wrapper)(ComponentHOC);
+  return (0, _formsyReact.withFormsy)(ComponentHOC);
 };
 
 exports.default = FormsyReactComponent;

@@ -49,7 +49,7 @@ var RadioGroup = createReactClass({
             if (_this.props.type === 'inline') {
                 return React.createElement(
                     'div',
-                    { className: className + ' col-sm-12 col-md-2', key: key },
+                    { className: className + ' col-sm-12 col-md-2}', key: key },
                     React.createElement('input', {
                         ref: function ref(c) {
                             return _this['element-' + key] = c;
