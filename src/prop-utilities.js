@@ -40,6 +40,8 @@ const cleanProps = (props) => {
         validatePristine,
         validateOnSubmit,
 
+        focusOnMount,
+
         ...rest
     } = props;
 

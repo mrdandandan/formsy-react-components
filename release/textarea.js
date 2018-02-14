@@ -20,14 +20,22 @@ var Textarea = createReactClass({
 
     propTypes: {
         rows: PropTypes.number,
-        cols: PropTypes.number
+        cols: PropTypes.number,
+        focusOnMount: PropTypes.bool
     },
 
     getDefaultProps: function getDefaultProps() {
         return {
             rows: 3,
-            cols: 0 // React doesn't render the cols attribute if it is zero
+            cols: 0, // React doesn't render the cols attribute if it is zero
+            focusOnMount: false
         };
+    },
+
+    componentDidMount: function componentDidMount() {
+        if (this.props.focusOnMount) {
+            this.element.focus();
+        }
     },
 
     changeValue: function changeValue(event) {
