@@ -39,7 +39,8 @@ var cleanProps = function cleanProps(props) {
             validatePristine = props.validatePristine,
             validateOnSubmit = props.validateOnSubmit,
             focusOnMount = props.focusOnMount,
-            rest = _objectWithoutProperties(props, ["mapping", "validationErrors", "onSubmit", "onValid", "onValidSubmit", "onInvalid", "onInvalidSubmit", "onChange", "reset", "preventExternalInvalidation", "onSuccess", "onError", "validationError", "validations", "addonAfter", "addonBefore", "buttonAfter", "buttonBefore", "elementWrapperClassName", "help", "info", "footer", "label", "options", "labelClassName", "layout", "rowClassName", "rowLabel", "validatePristine", "validateOnSubmit", "focusOnMount"]);
+            inlineWidth = props.inlineWidth,
+            rest = _objectWithoutProperties(props, ["mapping", "validationErrors", "onSubmit", "onValid", "onValidSubmit", "onInvalid", "onInvalidSubmit", "onChange", "reset", "preventExternalInvalidation", "onSuccess", "onError", "validationError", "validations", "addonAfter", "addonBefore", "buttonAfter", "buttonBefore", "elementWrapperClassName", "help", "info", "footer", "label", "options", "labelClassName", "layout", "rowClassName", "rowLabel", "validatePristine", "validateOnSubmit", "focusOnMount", "inlineWidth"]);
 
         return rest;
 };

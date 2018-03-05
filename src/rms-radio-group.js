@@ -16,7 +16,8 @@ var RadioGroup = createReactClass({
     propTypes: {
         name: PropTypes.string.isRequired,
         type: PropTypes.oneOf(['inline', 'stacked']),
-        options: PropTypes.array.isRequired
+        options: PropTypes.array.isRequired,
+        inlineWidth: PropTypes.number
     },
 
     getDefaultProps: function () {
@@ -25,7 +26,8 @@ var RadioGroup = createReactClass({
             label: '',
             help: null,
             info: null,
-            footer: null
+            footer: null,
+            inlineWidth: 2
         };
     },
 
@@ -42,7 +44,7 @@ var RadioGroup = createReactClass({
             let className = 'radio-group' + (disabled ? ' disabled' : '');
             if (this.props.type === 'inline') {
                 return (
-                    <div className={`${className} col-sm-12 col-md-2`} key={key}>
+                    <div className={`${className} col-sm-12 col-md-${this.props.inlineWidth}`} key={key}>
                         <input
                             ref={(c) => this['element-' + key] = c}
                             checked={checked}

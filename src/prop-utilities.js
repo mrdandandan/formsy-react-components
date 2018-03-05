@@ -41,6 +41,7 @@ const cleanProps = (props) => {
         validateOnSubmit,
 
         focusOnMount,
+        inlineWidth,
 
         ...rest
     } = props;

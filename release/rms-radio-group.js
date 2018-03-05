@@ -20,7 +20,8 @@ var RadioGroup = createReactClass({
     propTypes: {
         name: PropTypes.string.isRequired,
         type: PropTypes.oneOf(['inline', 'stacked']),
-        options: PropTypes.array.isRequired
+        options: PropTypes.array.isRequired,
+        inlineWidth: PropTypes.number
     },
 
     getDefaultProps: function getDefaultProps() {
@@ -29,7 +30,8 @@ var RadioGroup = createReactClass({
             label: '',
             help: null,
             info: null,
-            footer: null
+            footer: null,
+            inlineWidth: 2
         };
     },
 
@@ -49,7 +51,7 @@ var RadioGroup = createReactClass({
             if (_this.props.type === 'inline') {
                 return React.createElement(
                     'div',
-                    { className: className + ' col-sm-12 col-md-2', key: key },
+                    { className: className + ' col-sm-12 col-md-' + _this.props.inlineWidth, key: key },
                     React.createElement('input', {
                         ref: function ref(c) {
                             return _this['element-' + key] = c;
